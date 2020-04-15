@@ -19,15 +19,15 @@
     "postinstall": "rm -rf dist && yarn tsc",
     "test:types": "yarn tsc --noEmit",
     "test": "yarn test:types",
-    "release": "release-it",
-    "ts-node": "^8.3.0",
-    "typescript": "^3.5.3"
+    "release": "release-it"
   },
   "dependencies": {
     "color-string": "^1.5.3",
     "colors": "^1.3.3",
     "sharp": "^0.23.0",
-    "universal-analytics": "^0.4.20"
+    "universal-analytics": "^0.4.20",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
   },
   "devDependencies": {
     "@types/color-string": "^1.5.0",
