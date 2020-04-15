@@ -18,7 +18,8 @@
   "scripts": {
     "test:types": "yarn tsc --noEmit",
     "test": "yarn test:types",
-    "release": "release-it"
+    "release": "release-it",
+    "tsc": "tsc"
   },
   "dependencies": {
     "color-string": "^1.5.3",
