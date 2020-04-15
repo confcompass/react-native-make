@@ -16,7 +16,6 @@
     "plugin"
   ],
   "scripts": {
-    "postinstall": "rm -rf dist && yarn tsc",
     "test:types": "yarn tsc --noEmit",
     "test": "yarn test:types",
     "release": "release-it"
