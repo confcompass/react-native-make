@@ -1,4 +1,4 @@
-const BASE = 900; // Deliberate size based on max iPhone height
+const BASE = 200; // Deliberate size based on max iPhone height
 
 const androidSplashImages = [
   {
