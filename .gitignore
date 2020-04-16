@@ -1,1 +1,8 @@
 node_modules
+.idea/.gitignore
+.idea/misc.xml
+.idea/modules.xml
+.idea/react-native-make.iml
+.idea/vcs.xml
+.idea/codeStyles/codeStyleConfig.xml
+.idea/codeStyles/Project.xml
