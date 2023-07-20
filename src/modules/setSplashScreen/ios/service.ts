@@ -7,7 +7,6 @@ import {
   applyPatchByMatchedGroups,
   readFile,
   replaceInFile,
-  copyFile,
 } from '../../../services/file.processing';
 import { getNormalizedRGBAColors } from '../../../services/color.processing';
 import { EResizeMode } from '../../../services/type';

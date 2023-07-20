@@ -10,6 +10,13 @@ export const createDirectoryIfNotExists = (path: string) => {
   }
 };
 
+export const applyPatchByMatchedGroups = (
+  path: string,
+  patch: { patch: string; pattern: string | RegExp }
+) => {
+  writeFileSync(path, readFileSync(path, 'utf8').replace(patch.pattern, patch.patch));
+};
+
 export const copyFile = (sourcePath: string, destinationPath: string) => {
   createDirectoryIfNotExists(destinationPath);
   copyFileSync(sourcePath, destinationPath);
