@@ -9,4 +9,5 @@ export declare const config: {
             alpha: number;
         };
     };
+    iosStoryboardName: string;
 };

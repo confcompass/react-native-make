@@ -9,6 +9,9 @@ exports.createDirectoryIfNotExists = (path) => {
         fs_1.mkdirSync(directory, { recursive: true });
     }
 };
+exports.applyPatchByMatchedGroups = (path, patch) => {
+    fs_1.writeFileSync(path, fs_1.readFileSync(path, 'utf8').replace(patch.pattern, patch.patch));
+};
 exports.copyFile = (sourcePath, destinationPath) => {
     exports.createDirectoryIfNotExists(destinationPath);
     fs_1.copyFileSync(sourcePath, destinationPath);
@@ -17,9 +20,6 @@ exports.applyPatch = (path, { patch, pattern }) => {
     if (!exports.readFile(path).includes(patch)) {
         fs_1.writeFileSync(path, fs_1.readFileSync(path, 'utf8').replace(pattern, match => `${match}${patch}`));
     }
-};
-exports.applyPatchByMatchedGroups = (path, patch) => {
-    fs_1.writeFileSync(path, fs_1.readFileSync(path, 'utf8').replace(patch.pattern, patch.patch));
 };
 exports.replaceInFile = (sourcePath, destinationPath, replacements) => {
     exports.createDirectoryIfNotExists(destinationPath);

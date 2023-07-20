@@ -14,6 +14,7 @@ exports.addIosSplashScreen = async (imageSource, backgroundColor, resizeMode) =>
         configureSplashScreen();
         const iosSplashImageFolder = service_1.addIosImageSetContents('SplashImage', service_1.EImageSetType.IMAGE);
         await generateIosSplashImages(imageSource, iosSplashImageFolder);
+        setNewSplashScreenFileRefInInfoPlist();
     }
     catch (err) {
         console.log(err);
@@ -32,6 +33,16 @@ const configureSplashScreen = () => {
             patch: `$1\n  ${showRNSplashScreen}$2`,
         });
     }
+};
+const setNewSplashScreenFileRefInInfoPlist = () => {
+    const infoPlistPath = `./ios/${utils_1.getIosPackageName()}/Info.plist`;
+    const UILaunchStoryboardNamePattern = /(<key>UILaunchStoryboardName<\/key>[ \t\n]*<string>)[a-zA-Z]+(<\/string>)/g;
+    file_processing_1.replaceInFile(infoPlistPath, infoPlistPath, [
+        {
+            oldContent: UILaunchStoryboardNamePattern,
+            newContent: `$1${config_1.config.iosStoryboardName}$2`,
+        },
+    ]);
 };
 const addSplashScreenXib = (backgroundColor, resizeMode = type_1.EResizeMode.CONTAIN) => {
     const { red, green, blue, alpha } = color_processing_1.getNormalizedRGBAColors(backgroundColor);
