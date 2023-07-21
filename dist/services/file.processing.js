@@ -18,9 +18,6 @@ exports.applyPatch = (path, { patch, pattern }) => {
         fs_1.writeFileSync(path, fs_1.readFileSync(path, 'utf8').replace(pattern, match => `${match}${patch}`));
     }
 };
-exports.applyPatchByMatchedGroups = (path, patch) => {
-    fs_1.writeFileSync(path, fs_1.readFileSync(path, 'utf8').replace(patch.pattern, patch.patch));
-};
 exports.replaceInFile = (sourcePath, destinationPath, replacements) => {
     exports.createDirectoryIfNotExists(destinationPath);
     let fileContent = fs_1.readFileSync(sourcePath, 'utf8');
